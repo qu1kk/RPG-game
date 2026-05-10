@@ -9,18 +9,29 @@
   ],
   "license": "ISC",
   "author": "Zastavnyy Elizar",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d dist",
-    "lint": "eslint ."
+    "build": "webpack --mode production",
+    "start": "webpack serve",
+    "lint": "eslint .",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.2",
+    "babel-jest": "^30.4.1",
+    "babel-loader": "^10.1.1",
+    "css-loader": "^7.1.4",
     "eslint": "^8.57.1",
-    "eslint-config-airbnb-base": "^15.0.0"
+    "eslint-config-airbnb-base": "^15.0.0",
+    "html-webpack-plugin": "^5.6.7",
+    "jest": "^30.4.2",
+    "mini-css-extract-plugin": "^2.10.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2",
+    "webpack-dev-server": "^5.2.3"
   },
   "dependencies": {
     "core-js": "^3.49.0"
