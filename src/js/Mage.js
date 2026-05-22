@@ -1,5 +1,7 @@
 import Player from './Player.js';
 import Staff from './Staff.js';
+import Knife from './Knife.js';
+import Arm from './Arm.js';
 
 export default class Mage extends Player {
   constructor(position, name) {
@@ -9,7 +11,9 @@ export default class Mage extends Player {
     this.attack = 5;
     this.agility = 8;
     this.description = 'Маг';
-    this.weapon = new Staff();
+    
+    this.weapons = [new Staff(), new Knife(), new Arm()];
+    this.weapon = this.weapons[0];
   }
 
   takeDamage(damage) {

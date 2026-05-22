@@ -1,5 +1,7 @@
 import Player from './Player.js';
 import Sword from './Sword.js';
+import Knife from './Knife.js';
+import Arm from './Arm.js';
 
 export default class Warrior extends Player {
   constructor(position, name) {
@@ -8,7 +10,9 @@ export default class Warrior extends Player {
     this.speed = 2;
     this.attack = 10;
     this.description = 'Воин';
-    this.weapon = new Sword();
+    
+    this.weapons = [new Sword(), new Knife(), new Arm()];
+    this.weapon = this.weapons[0];
   }
 
   takeDamage(damage) {

@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import globals from "globals";
 
 export default [
   js.configs.recommended,
@@ -8,11 +9,15 @@ export default [
   {
     languageOptions: {
       globals: {
-        console: "readonly"
+        ...globals.jest,
+        console: "readonly",
+        Math: "readonly"
       }
     },
     plugins: {
-      extends: ["airbnb-base/legacy"]
+    },
+    rules: {
+      "no-unused-vars": "warn"
     }
   }
 ];

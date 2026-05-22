@@ -1,10 +1,17 @@
-import Archer from './Archer.js';
-import Crossbowman from './Crossbowman.js';
-import Demiurge from './Demiurge.js';
-import Dwarf from './Dwarf.js';
-import Mage from './Mage.js';
-import Warrior from './Warrior.js';
+export default function play(players) {
+  while (players.filter(p => !p.isDead()).length > 1) {
+    players.forEach(player => {
+      if (!player.isDead()) {
+        player.turn(players);
+      }
+    });
+  }
 
-export default function play() {
-  console.log('Game started');
+  const winner = players.find(p => !p.isDead());
+  if (winner) {
+    console.log(`Победил ${winner.name} (${winner.description})! Остаток жизней: ${winner.life.toFixed(1)}`);
+    return winner;
+  }
+  
+  return null;
 }

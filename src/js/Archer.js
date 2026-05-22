@@ -1,5 +1,7 @@
 import Player from './Player.js';
 import Bow from './Bow.js';
+import Knife from './Knife.js';
+import Arm from './Arm.js';
 
 export default class Archer extends Player {
   constructor(position, name) {
@@ -9,12 +11,13 @@ export default class Archer extends Player {
     this.attack = 5;
     this.agility = 10;
     this.description = 'Лучник';
-    this.weapon = new Bow();
+    
+    this.weapons = [new Bow(), new Knife(), new Arm()];
+    this.weapon = this.weapons[0];
   }
 
   getDamage(distance) {
     if (distance > this.weapon.range) return 0;
-    // Формула из задания: (attack + weaponDamage) * getLuck() * distance / weaponRange
     return (this.attack + this.weapon.getDamage()) * this.getLuck() * distance / this.weapon.range;
   }
 }
